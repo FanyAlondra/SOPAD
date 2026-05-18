@@ -1,5 +1,2 @@
-[phases.setup]
-aptPkgs = ["libpng-dev", "libjpeg-dev", "libfreetype6-dev"]
-
 [phases.extensions]
-cmds = ["install-php-extensions gd zip"]
+cmds = ["install-php-extensions pdo_mysql gd zip"]
