@@ -1,2 +1,5 @@
 [phases.setup]
-nixPkgs = ["php82", "php82Packages.gd", "php82Packages.zip"]
+aptPkgs = ["libpng-dev", "libjpeg-dev", "libfreetype6-dev"]
+
+[phases.extensions]
+cmds = ["install-php-extensions gd zip"]
