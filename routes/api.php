@@ -2,18 +2,52 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| API SOPAD
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
+*/
+
+Route::get('/proyectos', function () {
+
+    return response()->json([
+        'ok' => true,
+        'mensaje' => 'Lista de proyectos',
+        'data' => DB::table('proyecto')->get()
+    ]);
+
+});
+
+Route::get('/materiaprima', function () {
+
+    return response()->json([
+        'ok' => true,
+        'mensaje' => 'Lista de materia prima',
+        'data' => DB::table('materia_prima')->get()
+    ]);
+
+});
+
+Route::get('/ventas', function () {
+
+    return response()->json([
+        'ok' => true,
+        'mensaje' => 'Lista de ventas',
+        'data' => DB::table('ventas_anuales')->get()
+    ]);
+
+});
+
+/*
+|--------------------------------------------------------------------------
+| USUARIO AUTENTICADO
+|--------------------------------------------------------------------------
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+
     return $request->user();
+
 });
