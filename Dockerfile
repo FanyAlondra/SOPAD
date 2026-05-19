@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install pdo pdo_mysql gd zip
 
-RUN a2dismod mpm_event
+RUN a2dismod mpm_event mpm_worker || true
 RUN a2enmod mpm_prefork
 RUN a2enmod rewrite
 
