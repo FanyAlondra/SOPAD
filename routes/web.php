@@ -30,9 +30,7 @@ use App\Http\Controllers\ProyeccionFinancieraController;
 */
 
 // Página principal
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AuthController::class, 'showLogin']);
 
 // LOGIN
 Route::get('/login', [AuthController::class, 'showLogin'])
