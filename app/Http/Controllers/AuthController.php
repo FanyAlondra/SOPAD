@@ -36,9 +36,7 @@ class AuthController extends Controller
         $user->generateTwoFactorCode();
 
         // Enviar código al correo
-        Mail::to($user->correo)->send(
-            new TwoFactorCodeMail($user->two_factor_code)
-        );
+       dd($user->two_factor_code);
 
         // Guardar sesión temporal
         session(['2fa_user_id' => $user->id_usuario]);
